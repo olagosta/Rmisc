@@ -51,7 +51,7 @@ similarity <- function(i, j,
     vI <- na.exclude(unique(i))
     vJ <- na.exclude(unique(j))
     if (length(vI) > 2 | length(vJ) > 2) stop("i and j must be binary")
-    if (!all(vI %in% vJ)) stop("i and j have different binary codification")
+    if (length(unique(c(vI, vJ))) > 2) stop("i and j have different binary codification")
 
     if (!is.numeric(method)) method <- match.arg(method)
 
